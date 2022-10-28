@@ -15,5 +15,10 @@ const Task = (props) => {
 };
 
 
-
+const renderTasks = (props) => {
+    const taskList = document.querySelector('.todo__tasks');
+    taskList.innerHTML = props
+    .map((props) => Task(props))
+    .join('');
+};
 
