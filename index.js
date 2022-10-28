@@ -22,3 +22,9 @@ const renderTasks = (props) => {
     .join('');
 };
 
+fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks')
+.then((response) => response.json())
+.then((data) => renderTasks(data));
+
+
+
