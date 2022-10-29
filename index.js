@@ -28,23 +28,21 @@ fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks')
     .then((data) => renderTasks(data));
 
 
-const renderUndoneTasks = (props) => {
-    const taskList = document.querySelector('.todo__tasks');
-    taskList.innerHTML = props
-        .map((props) => Task(props))
-        .join('');
-};
-
-fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks?done=true')
-    .then((response) => response.json())
-    .then((data) => renderUndoneTasks(data))
-
 
 const checkBox = document.getElementById("checkbox-undone");
 
 document.getElementById("checkbox-undone").addEventListener('click', (list) => {
     if (checkBox.checked == true) {
-        renderUndoneTasks;
+        const renderUndoneTasks = (props) => {
+            const taskList = document.querySelector('.todo__tasks');
+            taskList.innerHTML = props
+                .map((props) => Task(props))
+                .join('');
+        };
+
+        fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks?done=true')
+            .then((response) => response.json())
+            .then((data) => renderUndoneTasks(data));
     } else {
         renderTasks;
     }
