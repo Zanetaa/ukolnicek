@@ -3,15 +3,14 @@ console.log('funguju!');
 const Task = (props) => {
     const { name, due, done } = props;
 
-    let tickClass = '';
+    /*let tickClass = '';
     if (done) {
         tickClass = 'item__done--tick';
-    }
+    }*/
 
     return `
     <div class= "task__name">${name}</div>
     <div class= "task__due">${due}</div>
-    <div class= "task__done">${tickClass}</div>
     `;
 };
 
