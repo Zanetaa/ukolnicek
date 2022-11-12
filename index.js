@@ -43,12 +43,24 @@ document.getElementById("checkbox-undone").addEventListener('change', (list) => 
             .then((response) => response.json())
             .then((data) => renderUndoneTasks(data));
     } else {
-        renderTasks;
+        
+        const renderTasks = (props) => {
+            const taskList = document.querySelector('.todo__tasks');
+            taskList.innerHTML = props
+                .map((props) => Task(props))
+                .join('');
+        };
+        
+        fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks')
+            .then((response) => response.json())
+            .then((data) => renderTasks(data));
+
+
     }
 });
 
 
-renderTasks;
+renderTasks();
 
 
 
