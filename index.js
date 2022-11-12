@@ -30,7 +30,7 @@ fetch('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks')
 
 const checkBox = document.getElementById("checkbox-undone");
 
-document.getElementById("checkbox-undone").addEventListener('click', (list) => {
+document.getElementById("checkbox-undone").addEventListener('change', (list) => {
     if (checkBox.checked == true) {
         const renderUndoneTasks = (props) => {
             const taskList = document.querySelector('.todo__tasks');
@@ -46,6 +46,7 @@ document.getElementById("checkbox-undone").addEventListener('click', (list) => {
         renderTasks;
     }
 });
+
 
 renderTasks;
 
